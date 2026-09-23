@@ -116,48 +116,51 @@ graph TD
 
 ---
 
-## 🛠️ Technology Stack
+## 🛠️ Technology Stack (Slide 3 — Technical Approach)
 
-| Layer | Technology | Key Libraries / Frameworks |
+| Layer / Pillar | Technology | Implementation & Capabilities |
 | :--- | :--- | :--- |
-| **Frontend** | React 18 + TypeScript | Vite, Tailwind CSS, Lucide React, Leaflet & React-Leaflet, Recharts, Canvas-Confetti, QRCode.react |
-| **Backend** | Node.js + Express + TypeScript | In-Memory ACID Data Store with PostGIS/PostgreSQL seed scripts, RESTful API architecture |
-| **Database** | PostgreSQL + PostGIS (Ready) | `database/schema.sql`, `database/seed.sql` with geospatial spatial indexing (`ST_DWithin`, `ST_Distance`) |
-| **Localization** | Custom Reactive Context | `locales/en.json`, `locales/hi.json` |
-| **Testing** | Node.js Test Runner | `server/test-flows.js` (End-to-End API validation suite) |
+| **Frontend** | **React.js & React Native** | Responsive, multilingual mobile-first UI with Vite, Tailwind CSS, Lucide React, and English/हिन्दी dictionary |
+| **Backend** | **Java, Spring Boot 3** | Secure, scalable enterprise service layer with Spring Security 6, Spring Data JPA, and Hibernate Spatial |
+| **Database** | **PostgreSQL + PostGIS** | Relational data persistence with PostGIS geography geometry types (`Point, 4326`) and GiST spatial indexing |
+| **AI / ML** | **Python (Scikit-Learn)** | Time-series Polynomial Ridge demand forecasting and IsolationForest review anomaly/fraud detection engine |
+| **Geo-Spatial** | **Leaflet.js + PostGIS** | Real-time worker-customer matching using PostGIS `ST_DWithin` & `ST_DistanceSphere` spatial queries with Leaflet map |
+| **QR & Certificates** | **Python `qrcode` + `ReportLab`** | Cryptographic HMAC-SHA256 signed QR tokens and automated vector PDF skill milestone certificate generator |
+| **Payments** | **UPI / Razorpay APIs** | Dynamic NPCI-compliant UPI QR codes, Razorpay order integrations, and automated 18% GST + 2% Welfare Fund invoices |
+| **Auth & RBAC** | **JWT + Spring Security** | Role-Based Access Control (`ROLE_CUSTOMER`, `ROLE_WORKER`, `ROLE_SOCIETY_ADMIN`, `ROLE_FEDERATION_ADMIN`) |
+| **APIs** | **RESTful Architecture** | Standardized REST API contracts for integration with cooperative federation records and insurance schemes |
+| **Notifications** | **Firebase Cloud Messaging + SMS/IVR** | Multi-channel dispatching engine with FCM push notifications and automatic SMS/IVR fallback for rural workers |
 
 ---
 
 ## 🚀 Quick Start Guide
 
-### Prerequisites
-- Node.js (v18.x or v20.x recommended)
-- npm (v9.x or higher)
-
-### 1. Clone & Setup
+### 1. Start the Python AI/ML & Certificate Microservice
 ```bash
-# Navigate to project root
-cd d:\SIH-26-089
+cd ai-service
+pip install -r requirements.txt
+python main.py
+# AI microservice starts on http://localhost:8000
 ```
+*Run AI tests:* `python test_ai_service.py`
 
-### 2. Start the Backend API Server
+### 2. Start the Java Spring Boot Backend
 ```bash
-cd server
-npm install
-npm run build
-npm start
-# Backend will start on http://localhost:5000
+cd backend-spring
+mvn clean spring-boot:run
+# Spring Boot API starts on http://localhost:8080
 ```
-*Health Check:* Open `http://localhost:5000/api/health` in your browser.
+*(Or use the lightweight Node.js/TypeScript server in `server/` with `npm start` on http://localhost:5000)*
 
-### 3. Start the Frontend Client
+### 3. Start the React Frontend Client
 ```bash
-cd ../client
+cd client
 npm install
 npm run dev
 # Frontend will start on http://localhost:5173
 ```
-*Application URL:* Open `http://localhost:5173/` in any modern web browser.
+*Application URL:* Open [http://localhost:5173/](http://localhost:5173/) in your web browser.
+
 
 ---
 

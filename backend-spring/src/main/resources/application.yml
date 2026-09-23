@@ -1,0 +1,47 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: sahakar-seva-backend
+
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:sahakar_seva}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    database-platform: org.hibernate.spatial.dialect.postgis.PostgisDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          batch_size: 25
+
+sahakar:
+  jwt:
+    # 256-bit secret key for HMAC-SHA256
+    secret: "404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970"
+    expiration-ms: 86400000 # 24 Hours
+
+  ai-service:
+    url: ${AI_SERVICE_URL:http://localhost:8000}
+
+  payment:
+    upi:
+      merchant-vpa: "sahakar.seva@sbi"
+      merchant-name: "Sahakar Seva Cooperative Federation"
+    razorpay:
+      key-id: ${RAZORPAY_KEY_ID:rzp_test_mock_sahakar}
+      key-secret: ${RAZORPAY_KEY_SECRET:mock_secret_key_2026}
+
+  notification:
+    fcm:
+      enabled: true
+    sms-fallback:
+      enabled: true
+      gateway: "SIMULATED_NIC_SMS"
