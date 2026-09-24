@@ -135,7 +135,40 @@ graph TD
 
 ## 🚀 Quick Start Guide
 
-### 1. Start the Python AI/ML & Certificate Microservice
+### ⚡ Option A: Run Everything All at Once (Recommended)
+
+From the project root (`d:\SIH-26-089`):
+
+```bash
+# In Windows PowerShell / CMD:
+npm.cmd run dev
+
+# Or simply double-click:
+start-all.bat
+```
+> Both the **Backend API** (`http://localhost:5000`) and the **React Client** (`http://localhost:5173`) will launch concurrently in a single terminal with color-coded logs.
+> 
+> *To also include the Python AI microservice:* `npm.cmd run dev:all`
+
+---
+
+### 🛠️ Option B: Start Services Individually
+
+#### 1. Start the Backend API (Node.js / Express)
+```bash
+cd server
+npm.cmd run dev
+# Server starts on http://localhost:5000
+```
+
+#### 2. Start the React Frontend Client
+```bash
+cd client
+npm.cmd run dev
+# Frontend will start on http://localhost:5173
+```
+
+#### 3. (Optional) Start the Python AI/ML & Certificate Microservice
 ```bash
 cd ai-service
 pip install -r requirements.txt
@@ -144,21 +177,13 @@ python main.py
 ```
 *Run AI tests:* `python test_ai_service.py`
 
-### 2. Start the Java Spring Boot Backend
+#### 4. (Alternative) Java Spring Boot Backend
 ```bash
 cd backend-spring
 mvn clean spring-boot:run
 # Spring Boot API starts on http://localhost:8080
 ```
-*(Or use the lightweight Node.js/TypeScript server in `server/` with `npm start` on http://localhost:5000)*
 
-### 3. Start the React Frontend Client
-```bash
-cd client
-npm install
-npm run dev
-# Frontend will start on http://localhost:5173
-```
 *Application URL:* Open [http://localhost:5173/](http://localhost:5173/) in your web browser.
 
 
